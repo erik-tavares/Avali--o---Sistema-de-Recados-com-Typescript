@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <title>Lista de Recados</title>
+  </head>
+  <body id="imagem2">
+    <div id="content">
+      <h1 id="cor">Meus Recados</h1>
+    <header>
+      <div id="recados">
+      <form class="textfield" id="form_lista">
+        <input
+          type="text"
+          name="descricao"
+          id="messageTitle"
+          placeholder="Descrição"
+          required
+        />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input
+          type="text"
+          name="detalhamento"
+          id="messageBody"
+          placeholder="Detalhamento"
+          required
+        />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="submit" class="addButton" id="btn_lista">Salvar</button>
+      </form>
+    </header>
+    <hr class="traco">
+    <main>
+      <div id="div_lista">
+        <div>
+          <table class="table" id="tabela">
+            <thead id="thead">
+              <tr>
+                <th>#</th>
+                <th >Descrição</th>
+                <th>Detalhamento</th>
+                <th>Ação</th>
+              </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
+      </div>
+      </div>
+      </div>
+    </main>
+    <script src="./js/recados.js"></script>
+  </body>
+</html>
