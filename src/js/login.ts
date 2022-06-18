@@ -16,7 +16,7 @@ function logar(event: any) {
   });
 
   if (!usuarioEncontrado) {
-    showAlert("Usuário ou senha inválidos!", "danger", 1500);
+    showAlert("Usuário ou senha inválidos!", "warning", 1500);
     return;
   }
 
@@ -45,7 +45,6 @@ function showAlert(message: string, color?: string, timeOut?: number) {
 
   if (!color) {
     containerAlert?.classList.add(`alert-secondary`);
-    console.log("chegou aqui");
   } else {
     containerAlert?.classList.add(`alert-${color}`);
   }

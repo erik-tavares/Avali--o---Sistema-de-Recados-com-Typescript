@@ -39,6 +39,17 @@ function registrar(event) {
         myAlert("As senhas são diferentes!", "danger", 1500);
         return;
     }
+    if (campoSenha.value.length <= 5) {
+        formRegister.innerHTML = "Insira no minimo 6 caracteres!";
+        campoSenha.setAttribute("style", "border-color: red");
+        return false;
+    }
+    else {
+        formRegister.setAttribute("style", "color: green");
+        formRegister.innerHTML = "Senha";
+        campoSenha.setAttribute("style", "border-color: green");
+        return true;
+    }
     const usuarioJaCadastrado = usuariosBD.some((usuarios) => {
         return usuarios.usuario === campoUsuario;
     });

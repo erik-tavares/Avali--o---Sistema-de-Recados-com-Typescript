@@ -46,7 +46,7 @@ function registrar(event: any) {
   const campoSenhaConfirmacao = formRegister.senha_confirmacao.value;
 
   if (campoSenha !== campoSenhaConfirmacao) {
-    myAlert("As senhas são diferentes!", "danger", 1500);
+    myAlert("As senhas são diferentes!", "warning", 1500);
     return;
   }
 
@@ -55,7 +55,7 @@ function registrar(event: any) {
   });
 
   if (usuarioJaCadastrado) {
-    myAlert("Usuario já cadastrado!", "danger", 1500);
+    myAlert("Usuario já cadastrado!", "warning", 1500);
     return;
   }
 
@@ -68,7 +68,7 @@ function registrar(event: any) {
   usuariosBD.push(usuarioCadastrado);
 
   localStorage.setItem("usuarios", JSON.stringify(usuariosBD));
-  myAlert("Usuario cadastrado com sucesso!", "success", 1000);
+  myAlert("Usuario cadastrado com sucesso!", "dark", 1000);
   setTimeout(() => {
     window.location.href = "login.html";
   }, 1000);

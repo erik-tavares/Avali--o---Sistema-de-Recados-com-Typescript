@@ -373,7 +373,6 @@ function moreInfo(buttonId: Number) {
 }
 
 function apagarRecado(description: String) {
-  console.log("apagou");
   const infosBD = getLocalStorage();
   const indexRecado = infosBD.findIndex(
     (info: any) => info.descricao === description
@@ -398,8 +397,6 @@ function salvarRecado(description: String) {
   );
   infosBD[indexRecado].descricao = recipientDesc.value;
   infosBD[indexRecado].detalhamento = recipientDetails.value;
-
-  console.log(indexRecado);
 
   setLocalStorage(infosBD);
   carregarHTMLTabela();
