@@ -315,7 +315,6 @@ function moreInfo(buttonId) {
     const selectedButton = Array.from(infoButtons).find((button) => buttonId === Number(button.id));
 }
 function apagarRecado(description) {
-    console.log("apagou");
     const infosBD = getLocalStorage();
     const indexRecado = infosBD.findIndex((info) => info.descricao === description);
     infosBD.splice(indexRecado, 1);
@@ -329,7 +328,6 @@ function salvarRecado(description) {
     const indexRecado = infosBD.findIndex((info) => info.descricao === description);
     infosBD[indexRecado].descricao = recipientDesc.value;
     infosBD[indexRecado].detalhamento = recipientDetails.value;
-    console.log(indexRecado);
     setLocalStorage(infosBD);
     carregarHTMLTabela();
 }

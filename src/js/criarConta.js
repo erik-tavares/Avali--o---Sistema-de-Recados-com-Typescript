@@ -36,25 +36,14 @@ function registrar(event) {
     const campoSenha = formRegister.senha.value;
     const campoSenhaConfirmacao = formRegister.senha_confirmacao.value;
     if (campoSenha !== campoSenhaConfirmacao) {
-        myAlert("As senhas são diferentes!", "danger", 1500);
+        myAlert("As senhas são diferentes!", "warning", 1500);
         return;
-    }
-    if (campoSenha.value.length <= 5) {
-        formRegister.innerHTML = "Insira no minimo 6 caracteres!";
-        campoSenha.setAttribute("style", "border-color: red");
-        return false;
-    }
-    else {
-        formRegister.setAttribute("style", "color: green");
-        formRegister.innerHTML = "Senha";
-        campoSenha.setAttribute("style", "border-color: green");
-        return true;
     }
     const usuarioJaCadastrado = usuariosBD.some((usuarios) => {
         return usuarios.usuario === campoUsuario;
     });
     if (usuarioJaCadastrado) {
-        myAlert("Usuario já cadastrado!", "danger", 1500);
+        myAlert("Usuario já cadastrado!", "warning", 1500);
         return;
     }
     const usuarioCadastrado = {
@@ -64,7 +53,7 @@ function registrar(event) {
     };
     usuariosBD.push(usuarioCadastrado);
     localStorage.setItem("usuarios", JSON.stringify(usuariosBD));
-    myAlert("Usuario cadastrado com sucesso!", "success", 1000);
+    myAlert("Usuario cadastrado com sucesso!", "dark", 1000);
     setTimeout(() => {
         window.location.href = "login.html";
     }, 1000);

@@ -13,7 +13,7 @@ function logar(event) {
         return usuario.usuario === campoUsuario && usuario.senha === campoSenha;
     });
     if (!usuarioEncontrado) {
-        showAlert("Usuário ou senha inválidos!", "danger", 1500);
+        showAlert("Usuário ou senha inválidos!", "warning", 1500);
         return;
     }
     window.location.href = "recados.html";
@@ -35,7 +35,6 @@ function showAlert(message, color, timeOut) {
     });
     if (!color) {
         containerAlert === null || containerAlert === void 0 ? void 0 : containerAlert.classList.add(`alert-secondary`);
-        console.log("chegou aqui");
     }
     else {
         containerAlert === null || containerAlert === void 0 ? void 0 : containerAlert.classList.add(`alert-${color}`);
