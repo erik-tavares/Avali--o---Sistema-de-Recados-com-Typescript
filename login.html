@@ -1,50 +1,114 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-  <meta charset="UTF-8" />
-  <title>Login</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" type="text/css" href="./css/index.css" />
-
   <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./src/css/index.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <title>Login</title>
   </head>
-
-<body id="imagem">
-  <div class='container'>
-    <div class='card'>
-      <h1> Entrar no Sistema de Recados</h1>
-
-      <div id='msgError'></div>
-
-      <div class='label-float'>
-        <input type='text' id='usuario' paceholder='' required>
-        <label id='userLabel' for='usuario'>Usuario</label>
+  <body>
+    <div class="container-fluid">
+      <div class="container-alert d-none" id="alert-box">
+        <div
+          class="alert alert-dismissible fade show"
+          role="alert"
+          id="alert-container"
+        >
+          <div id="alert-text-content"></div>
+          <button
+            type="button"
+            class="btn-close"
+            id="btn-close"
+            aria-label="Close"
+          ></button>
+        </div>
       </div>
-
-      <div class='label-float'>
-        <input type='password' id='senha' paceholder='' required>
-        <label id='senhaLabel' for='senha'>Senha</label>
-        <i class="fa fa-eye" aria-hidden="true"></i>
-      </div>
-
-      <div class='justify-center'>
-        <button onclick='entrar()'>Entrar</button>
-      </div>
-
-      <div class='justify-center'>
-        <hr id="linha">
-      </div>
-
-      <p> Não tem uma conta?
-        <a href='./criarConta.html'> Criar uma conta! </a>
-      </p>
-
     </div>
-  </div>
-</body>
-<script src="./js/login.js"></script>
-</body>
+    <section class="container-fluid" style="overflow: hidden">
+      <div class="section-principal row vh-100">
+        <div class="col-12">
+          <div class="campo-login mx-3">
+            <div>
+              <form id="form-login">
+                <div class="col-12">
+                  <div class="titulo align-self-start'">
+                    <h1 class="h1">Entrar no Sistema de Recados</h1>
+                  </div>
+                  <div class="form col-12">
+                    <div class="row">
+                      <div class="col-12 col-sm-6">
+                        <input
+                          required
+                          name="usuario"
+                          style="border: solid 3px red"
+                          class="usuario-senha form-control fs-6"
+                          type="text"
+                          id="usuario"
+                          class="usuario"
+                          placeholder="Usuário"
+                        />
+                      </div>
 
+                      <div
+                        class="col-12 col-sm-6 mt-2 mt-sm-0 position-relative"
+                      >
+                        <img id="olho-senha" src="./images/olhoHd.jpg" />
+                        <input
+                          required
+                          name="senha"
+                          style="border: solid 3px red"
+                          class="form-control usuario-senha fs-6"
+                          type="password"
+                          id="senha"
+                          class="senha"
+                          placeholder="Digite a senha"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <input
+                  class="botao"
+                  type="submit"
+                  name="entrar"
+                  id="entrar"
+                  value="Entrar"
+                />
+              </form>
+              <div class="quadradinho">
+                <input
+                  class="checkbox"
+                  type="checkbox"
+                  name="quadrado"
+                  id="quadrado"
+                />
+                <label for="quadrado" style="color: black">
+                  Manter-me conectado</label
+                >
+              </div>
+              <hr />
+
+              <button id="btnCriarConta" class="botao">
+                Criar uma Nova Conta
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./src/js/login.js"></script>
+  </body>
 </html>

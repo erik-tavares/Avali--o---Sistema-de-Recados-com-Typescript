@@ -1,57 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./css/index.css" />
-  <title>Criar Conta</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./src/css/index.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
 
-<head>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-
-<body>
-
-  <div class='container'>
-    <div class='card'>
-      <h1> Criar conta </h1>
-
-      <div id='msgError'></div>
-      <div id='msgSuccess'></div>
-
-      <div class="label-float">
-        <input type="text" id="nome" placeholder=" " required>
-        <label id="labelNome" for="nome">Nome</label>
-      </div>
-
-      <div class="label-float">
-        <input type="text" id="usuario" placeholder=" " required>
-        <label id="labelUsuario" for="usuario">Usuário</label>
-      </div>
-
-      <div class="label-float">
-        <input type="password" id="senha" placeholder=" " required>
-        <label id="labelSenha" for="senha">Senha</label>
-        <i id="verSenha" class="fa fa-eye" aria-hidden="true"></i>
-
-      </div>
-
-      <div class="label-float">
-        <input type="password" id="confirmSenha" placeholder=" " required>
-        <label id="labelConfirmSenha" for="confirmSenha">Confirmar Senha</label>
-        <i id="verConfirmSenha" class="fa fa-eye" aria-hidden="true"></i>
-      </div>
-
-      <div class='justify-center'>
-        <button id="create" onclick='cadastrar()'>Cadastrar</button>
+    <title>Criar Conta</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="container-alert d-none" id="alert-box">
+        <div
+          class="alert alert-dismissible fade show"
+          role="alert"
+          id="alert-container"
+        >
+          <div id="alert-text-content"></div>
+          <button
+            type="button"
+            class="btn-close"
+            id="btn-close"
+            aria-label="Close"
+          ></button>
+        </div>
       </div>
     </div>
-  </div>
-</body>
-</div>
-<script src="./js/criarConta.js"></script>
-</body>
 
+    <section
+      class="container-fluid section-principal background-registro vh-100"
+      style="overflow: hidden"
+    >
+      <div class="row container-form-registro">
+        <div class="col-12">
+          <section>
+            <div style="border: solid 4px; color: red" class="card">
+              <div class="row">
+                <div>
+                  <h1 class="nova-conta">Criar uma Nova Conta</h1>
+                </div>
+
+                <form class="caixa-nova-conta form-register" id="form-register">
+                  <label class="label" for="label-float">Usuário</label>
+                  <input
+                    required
+                    name="usuario"
+                    class="usuario-senha registro"
+                    type="text"
+                    id="usuario-registro"
+                    placeholder="Usuário"
+                  />
+                  <label class="label" for="label-float">Senha</label>
+                  <input
+                    required
+                    name="senha"
+                    class="usuario-senha registro mt-2"
+                    type="password"
+                    id="password-registro"
+                    placeholder="1234"
+                  />
+                  <label class="label" for="label-float"
+                    >Confirme sua senha</label
+                  >
+                  <input
+                    required
+                    name="senha_confirmacao"
+                    class="usuario-senha registro mt-2"
+                    type="password"
+                    id="password"
+                    class="password"
+                    placeholder="1234"
+                  />
+
+                  <input
+                    class="botao botao-registro mb-2"
+                    type="submit"
+                    name="Registrar"
+                    id="Registrar"
+                    value="Criar Conta"
+                  />
+                  <a href="./login.html" style="color: royalblue">
+                    voltar à página anterior</a
+                  >
+                </form>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <script src="./src/js/criarConta.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

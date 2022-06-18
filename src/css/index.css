@@ -1,0 +1,422 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+}
+
+body {
+  color: white;
+}
+
+.section-principal {
+  background-size: cover;
+  background-image: url("https://s1.static.brasilescola.uol.com.br/be/conteudo/images/imagem-em-lente-convexa.jpg");
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.titulo {
+  margin-bottom: 15px;
+}
+
+.titulo p {
+  font-weight: 200;
+}
+
+.campo-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation-name: transition;
+  animation-duration: 0.7s;
+  animation-timing-function: cubic-bezier();
+  height: 500px;
+  box-shadow: 5px 5px 4px 0px #00000060;
+  background-color: #ffffffce;
+  border-radius: 4%;
+  border: solid 4px;
+  color: red;
+}
+
+.titulo h1 {
+  color: black;
+  font-family: "Arial";
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-login {
+  width: auto;
+}
+
+.usuario-senha {
+  height: 40px;
+  padding: 0 15px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+}
+
+#teste123 {
+  position: relative;
+  display: flex;
+}
+
+.form-register {
+  width: auto;
+}
+
+#olho-senha {
+  height: 25px;
+  width: 25px;
+  position: absolute;
+  z-index: 1;
+  opacity: 0.65;
+  right: 20px;
+  top: 20%;
+  cursor: pointer;
+}
+#olho-senha:hover {
+  background-color: rgb(169, 224, 255);
+  border-radius: 50%;
+}
+
+hr {
+  color: black;
+  border: solid 2px;
+}
+
+.botao {
+  margin-top: 10px;
+  background-color: darkkhaki;
+  height: 40px;
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  color: black;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.botao:hover {
+  background-color: rgba(103, 77, 77, 0.85);
+  color: rgb(189, 58, 58);
+  transition: all 0.3s;
+}
+
+.quadradinho {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 110%;
+}
+
+.checkbox {
+  background-color: #3414e6;
+  height: 17px;
+  width: 17px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.body-registro {
+  background-color: #1dadff;
+}
+
+.nova-conta {
+  color: black;
+  text-align: center;
+}
+
+.caixa-nova-conta:hover a {
+  color: hsl(151, 100%, 56%);
+  background-color: #3b3b3b;
+  border-radius: 5%;
+  transition: all 0.9s;
+}
+
+::placeholder {
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: "Arial";
+}
+
+.registro {
+  width: 100%;
+  height: 45px;
+  border: solid 2px black;
+}
+
+.label-float {
+  width: 100%;
+  padding: 5px 5px;
+  display: inline-block;
+  border: 0;
+  border-bottom: 2px solid #272262;
+  background-color: transparent;
+  outline: none;
+  min-width: 180px;
+  font-size: 16px;
+  transition: all 0.3s ease-out;
+  border-radius: 0;
+}
+
+.label {
+  font-family: "Arial";
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+a:-webkit-any-link {
+  color: -webkit-link;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.botao-registro {
+  margin-top: 25px;
+  background-color: red;
+  height: 45px;
+  font-size: 20px;
+}
+
+.botao-registro:hover {
+  color: black;
+}
+
+.background-registro {
+  background-image: url("https://www.des1gnon.com/wp-content/uploads/2020/03/Pexels-Banco-de-Imagens-gratis-Des1gnON.jpg");
+}
+
+#logoutButton {
+  position: absolute;
+  right: 25px;
+  top: 7px;
+}
+
+.more-info-button {
+  display: none;
+}
+
+.table-fist-line-mais-info {
+  display: none;
+}
+
+.input_habilitado {
+  background-color: rgb(206, 206, 206);
+  transition: all 0.5s;
+  max-width: 90%;
+  padding: 2px 10px;
+  border-radius: 4px;
+  color: rgb(46, 46, 46);
+  font-weight: 500;
+}
+
+.btn {
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.editar {
+  background-color: blue;
+  color: #ffffff;
+}
+
+.btnSalvar {
+  border: none;
+  border-radius: 5px;
+  background-color: yellow;
+  color: white;
+}
+
+.btnSalvar:hover {
+  cursor: pointer;
+  transition: all 0.3s;
+  background-color: blue;
+}
+
+.apagar {
+  background-color: yellow;
+  color: white;
+}
+
+.confirmacao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(15, 15, 15, 0.7);
+}
+
+.container-confirmacao {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  width: 40vw;
+  background-color: rgba(0, 0, 0, 0.85);
+  border-radius: 4%;
+  box-shadow: 4px 4px 10px rgba(8, 6, 82, 0.5);
+  text-align: center;
+  transition: all 2s;
+  border: solid 3px red;
+}
+
+.card2 {
+  background-color: #ffffff80;
+  box-shadow: 3px 3px 1px 0px #00000060;
+  border-radius: 20px;
+}
+
+.card {
+  background-color: #ffffff80;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 3px 3px 1px 0px #00000060;
+  width: 500px;
+  border-radius: 4%;
+}
+
+.container-texto-confirmacao {
+  margin-bottom: 30px;
+  font-size: 140%;
+}
+.container-texto-confirmacao h1 {
+  margin-bottom: -10px;
+}
+
+.botao-confirmacao {
+  width: 80%;
+}
+
+.botao-confirmacao:hover {
+  color: #3b3b3b;
+}
+
+.linha {
+  color: white;
+  font-family: "Arial";
+  font-weight: bolder;
+  font-size: 25px;
+}
+
+.input {
+  color: black;
+  background-color: white;
+  border: none;
+  font-size: 20px;
+  width: 100%;
+  border-radius: 10px;
+  border: solid 2px red;
+}
+
+.titulo {
+  font-weight: 100;
+}
+
+.container-add-info {
+  border-radius: 20px;
+  background-color: rgb(19, 19, 19, 0.6);
+  box-shadow: 0px 8px 8px rgb(14, 14, 14, 0.4);
+}
+
+.table-fist-line {
+  box-shadow: 0px 5px 5px rgb(29, 29, 29);
+  border-radius: 5px;
+}
+
+.centralizar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-alert {
+  position: fixed;
+  height: 20vh;
+  width: 100vw;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-form-registro {
+  animation-name: transition;
+  animation-duration: 0.7s;
+  animation-timing-function: cubic-bezier(s);
+}
+
+@media (max-width: 630px) {
+  .detalhamento_input {
+    display: none;
+  }
+
+  .button-span {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .txt-button-salvar {
+    display: none;
+  }
+  #saveIcon {
+    display: block;
+  }
+
+  .buttons-td {
+    display: none;
+  }
+
+  .table-fist-line-acao {
+    display: none;
+  }
+
+  .table-fist-line-detalhamento {
+    display: none;
+  }
+  .table-fist-line-mais-info {
+    display: block;
+  }
+
+  .detalhamento_input {
+    display: none;
+  }
+
+  .more-info-button {
+    display: flex;
+
+    justify-content: center;
+  }
+}
+
+@keyframes transition {
+  0% {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
