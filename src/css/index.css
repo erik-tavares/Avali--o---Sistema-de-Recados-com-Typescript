@@ -38,15 +38,15 @@ body {
   animation-timing-function: cubic-bezier();
   height: 500px;
   box-shadow: 5px 5px 4px 0px #00000060;
-  background-color: #ffffffce;
+  background-color: #212529;
   border-radius: 4%;
   border: solid 4px;
   color: red;
 }
 
 .titulo h1 {
-  color: black;
-  font-family: "Arial";
+  color: white;
+  font-weight: bolder;
   text-align: center;
   margin-bottom: 20px;
 }
@@ -94,20 +94,15 @@ hr {
 
 .botao {
   margin-top: 10px;
-  background-color: darkkhaki;
+  background-color: #0d6efd;
   height: 40px;
   width: 100%;
   border: none;
   border-radius: 12px;
-  color: black;
+  color: white;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-}
-.botao:hover {
-  background-color: rgba(103, 77, 77, 0.85);
-  color: rgb(189, 58, 58);
-  transition: all 0.3s;
 }
 
 .quadradinho {
@@ -134,15 +129,15 @@ a {
 }
 
 .nova-conta {
-  color: black;
+  color: #212529;
   text-align: center;
+  font-weight: bolder;
 }
 
 .caixa-nova-conta:hover a {
-  color: hsl(151, 100%, 56%);
-  background-color: #3b3b3b;
+  color: #212529;
   border-radius: 5%;
-  transition: all 0.9s;
+  transition: all 1s;
 }
 
 ::placeholder {
@@ -176,6 +171,7 @@ a {
   font-family: "Arial";
   font-size: 20px;
   font-weight: bolder;
+  color: black;
 }
 
 a:-webkit-any-link {
@@ -186,13 +182,9 @@ a:-webkit-any-link {
 
 .botao-registro {
   margin-top: 25px;
-  background-color: red;
+  background-color: #0d6efd;
   height: 45px;
   font-size: 20px;
-}
-
-.botao-registro:hover {
-  color: black;
 }
 
 .background-registro {
@@ -232,6 +224,103 @@ a:-webkit-any-link {
 .editar {
   background-color: blue;
   color: #ffffff;
+}
+
+.icons {
+  display: flex;
+  column-gap: 25px;
+  margin: 5px;
+}
+
+.icon {
+  width: 60px;
+  height: 60px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 26px;
+  color: #fff;
+  border-radius: 50%;
+  outline: 2px solid #fff;
+  transition-property: outline-offset, outline-color, background-color;
+  transition-duration: 0.25s;
+  cursor: pointer;
+}
+
+.icon:hover {
+  outline-offset: 4px;
+}
+
+.icon:hover i {
+  animation: shake 0.25s;
+}
+
+.icon--instagram:hover {
+  background-image: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+  outline-color: #a02d76;
+}
+
+.fa-instagram:before {
+  content: "\f16d";
+  color: white;
+}
+
+.fa-twitter::before {
+  content: "";
+  color: white;
+}
+
+.fa-linkedin:before {
+  content: "\f0e1";
+  color: white;
+}
+
+.fa-github:before {
+  content: "\f09b";
+  color: white;
+}
+
+.icon--twitter:hover {
+  background-color: #1da1f2;
+  outline-color: #1da1f2;
+}
+
+.icon--linkedin:hover {
+  background-color: #0077b5;
+  outline-color: #0077b5;
+}
+
+.icon--github:hover {
+  background-color: #2ea44f;
+  outline-color: #2ea44f;
+}
+
+@keyframes shake {
+  10% {
+    transform: rotate(15deg);
+  }
+  20% {
+    transform: rotate(-15deg);
+  }
+  30% {
+    transform: rotate(15deg);
+  }
+  40% {
+    transform: rotate(-15deg);
+  }
+}
+
+.icones {
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 .btnSalvar {
