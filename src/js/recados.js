@@ -10,70 +10,87 @@ const formInformacoes = document.querySelector("form");
 const confirmSpace = document.getElementById("confirmSpace");
 let idElemento = 0;
 if (usuario.length === 0) {
-    alert("Nenhum ususario encontrado");
-    window.location.href = "login.html";
+  alert("Nenhum ususario encontrado");
+  window.location.href = "login.html";
 }
 function getLocalStorage() {
-    let infosBD = JSON.parse(localStorage.getItem(`infos${nomeUsuario}`) || "[]");
-    return infosBD;
+  let infosBD = JSON.parse(localStorage.getItem(`infos${nomeUsuario}`) || "[]");
+  return infosBD;
 }
 function setLocalStorage(infosBD) {
-    localStorage.setItem(`infos${nomeUsuario}`, JSON.stringify(infosBD));
+  localStorage.setItem(`infos${nomeUsuario}`, JSON.stringify(infosBD));
 }
 function alertShow(message, color, timeOut) {
-    if (!message) {
-        return;
-    }
-    const alertBox = document.getElementById("alert-box");
-    const containerAlert = document.getElementById("alert-container");
-    const alertTextContent = document.getElementById("alert-text-content");
-    const btnClose = document.getElementById("btn-close");
-    alertBox === null || alertBox === void 0 ? void 0 : alertBox.classList.remove("d-none");
-    alertTextContent.textContent = message;
-    btnClose === null || btnClose === void 0 ? void 0 : btnClose.addEventListener("click", () => {
-        alertBox === null || alertBox === void 0 ? void 0 : alertBox.classList.add("d-none");
-        containerAlert === null || containerAlert === void 0 ? void 0 : containerAlert.classList.remove(`alert-${color}`);
-    });
-    if (!color) {
-        containerAlert === null || containerAlert === void 0 ? void 0 : containerAlert.classList.add(`alert-secondary`);
-    }
-    else {
-        containerAlert === null || containerAlert === void 0 ? void 0 : containerAlert.classList.add(`alert-${color}`);
-    }
-    if (timeOut) {
-        btnClose === null || btnClose === void 0 ? void 0 : btnClose.classList.add("d-none");
-        setTimeout(() => {
-            alertBox === null || alertBox === void 0 ? void 0 : alertBox.classList.add("d-none");
-            containerAlert === null || containerAlert === void 0 ? void 0 : containerAlert.classList.remove(`alert-${color}`);
-        }, timeOut);
-    }
+  if (!message) {
+    return;
+  }
+  const alertBox = document.getElementById("alert-box");
+  const containerAlert = document.getElementById("alert-container");
+  const alertTextContent = document.getElementById("alert-text-content");
+  const btnClose = document.getElementById("btn-close");
+  alertBox === null || alertBox === void 0
+    ? void 0
+    : alertBox.classList.remove("d-none");
+  alertTextContent.textContent = message;
+  btnClose === null || btnClose === void 0
+    ? void 0
+    : btnClose.addEventListener("click", () => {
+        alertBox === null || alertBox === void 0
+          ? void 0
+          : alertBox.classList.add("d-none");
+        containerAlert === null || containerAlert === void 0
+          ? void 0
+          : containerAlert.classList.remove(`alert-${color}`);
+      });
+  if (!color) {
+    containerAlert === null || containerAlert === void 0
+      ? void 0
+      : containerAlert.classList.add(`alert-secondary`);
+  } else {
+    containerAlert === null || containerAlert === void 0
+      ? void 0
+      : containerAlert.classList.add(`alert-${color}`);
+  }
+  if (timeOut) {
+    btnClose === null || btnClose === void 0
+      ? void 0
+      : btnClose.classList.add("d-none");
+    setTimeout(() => {
+      alertBox === null || alertBox === void 0
+        ? void 0
+        : alertBox.classList.add("d-none");
+      containerAlert === null || containerAlert === void 0
+        ? void 0
+        : containerAlert.classList.remove(`alert-${color}`);
+    }, timeOut);
+  }
 }
 function salvar(event) {
-    event.preventDefault();
-    if (!descricao.value && !detalhamento.value) {
-        alertShow("Preencha ao menos um dos campos abaixo!", "warning", 1000);
-        return;
-    }
-    if (!descricao.value) {
-        descricao.value = "Sem Descrição";
-    }
-    if (!detalhamento.value) {
-        detalhamento.value = "Sem Detalhamento";
-    }
-    const infos = getLocalStorage();
-    const informacoes = {
-        id: definirID(),
-        descricao: descricao.value,
-        detalhamento: detalhamento.value,
-    };
-    infos.push(informacoes);
-    setLocalStorage(infos);
-    descricao.value = "";
-    detalhamento.value = "";
-    carregarHTMLTabela();
+  event.preventDefault();
+  if (!descricao.value && !detalhamento.value) {
+    alertShow("Preencha ao menos um dos campos abaixo!", "warning", 1000);
+    return;
+  }
+  if (!descricao.value) {
+    descricao.value = "Sem Descrição";
+  }
+  if (!detalhamento.value) {
+    detalhamento.value = "Sem Detalhamento";
+  }
+  const infos = getLocalStorage();
+  const informacoes = {
+    id: definirID(),
+    descricao: descricao.value,
+    detalhamento: detalhamento.value,
+  };
+  infos.push(informacoes);
+  setLocalStorage(infos);
+  descricao.value = "";
+  detalhamento.value = "";
+  carregarHTMLTabela();
 }
 function carregarHTMLTabela() {
-    tabela.innerHTML = `  
+  tabela.innerHTML = `  
       <thead class="table-fist-line " >
         <tr class="linha" id="linha_1">
             <td >#</td>
@@ -85,8 +102,8 @@ function carregarHTMLTabela() {
         </tr>
     </thead>
     <br>`;
-    getLocalStorage().forEach((linha, index) => {
-        tabela.innerHTML += `
+  getLocalStorage().forEach((linha, index) => {
+    tabela.innerHTML += `
     <tbody>
     <tr class="linha">
       <td>${index + 1}</td>
@@ -142,66 +159,68 @@ function carregarHTMLTabela() {
     </tr>
      
     `;
-    });
-    const linhas = document.querySelectorAll(".linha");
-    linhas.forEach((linha) => linha.addEventListener("click", apagarOuEditar));
+  });
+  const linhas = document.querySelectorAll(".linha");
+  linhas.forEach((linha) => linha.addEventListener("click", apagarOuEditar));
 }
 function apagarOuEditar(click) {
-    const linhaElementos = document.getElementsByName(click.target.name);
-    idElemento = click.target.name;
+  const linhaElementos = document.getElementsByName(click.target.name);
+  idElemento = click.target.name;
+  const infosBD = getLocalStorage();
+  const indexElement = infosBD.findIndex(
+    (elemento) => elemento.id == idElemento
+  );
+  if (click.target.className === "btn editar") {
+    if (click.target.textContent === "Editar") {
+      estiloInputHabilitado(linhaElementos[0]);
+      estiloInputHabilitado(linhaElementos[1]);
+      linhaElementos[2].textContent = "Salvar";
+      linhaElementos[3].textContent = "Descartar";
+      return;
+    }
+    if (click.target.textContent === "Salvar") {
+      estiloPadrao(linhaElementos[0]);
+      salvarDescricao(linhaElementos[0], indexElement);
+      estiloPadrao(linhaElementos[1]);
+      salvarDestalhamento(linhaElementos[1], indexElement);
+      linhaElementos[2].textContent = "Editar";
+      linhaElementos[3].textContent = "Apagar";
+    }
+  }
+  function salvarDescricao(elemento, indexElement) {
     const infosBD = getLocalStorage();
-    const indexElement = infosBD.findIndex((elemento) => elemento.id == idElemento);
-    if (click.target.className === "btn editar") {
-        if (click.target.textContent === "Editar") {
-            estiloInputHabilitado(linhaElementos[0]);
-            estiloInputHabilitado(linhaElementos[1]);
-            linhaElementos[2].textContent = "Salvar";
-            linhaElementos[3].textContent = "Descartar";
-            return;
-        }
-        if (click.target.textContent === "Salvar") {
-            estiloPadrao(linhaElementos[0]);
-            salvarDescricao(linhaElementos[0], indexElement);
-            estiloPadrao(linhaElementos[1]);
-            salvarDestalhamento(linhaElementos[1], indexElement);
-            linhaElementos[2].textContent = "Editar";
-            linhaElementos[3].textContent = "Apagar";
-        }
+    infosBD[indexElement].descricao = `${elemento.value}`;
+    setLocalStorage(infosBD);
+  }
+  function salvarDestalhamento(elemento, indexElement) {
+    const infosBD = getLocalStorage();
+    infosBD[indexElement].detalhamento = `${elemento.value}`;
+    setLocalStorage(infosBD);
+  }
+  function estiloPadrao(elemento) {
+    elemento.setAttribute("disabled", "true");
+    elemento.setAttribute("class", "input");
+  }
+  function estiloInputHabilitado(elemento) {
+    elemento.removeAttribute("disabled");
+    elemento.setAttribute("class", "input input_habilitado ");
+  }
+  if (click.target.textContent === "Descartar") {
+    estiloPadrao(linhaElementos[0]);
+    estiloPadrao(linhaElementos[1]);
+    carregarHTMLTabela();
+  }
+  if (click.target.textContent !== "Descartar") {
+    if (click.target.className === "btn apagar") {
+      adicionarHTMLConfirmacao();
     }
-    function salvarDescricao(elemento, indexElement) {
-        const infosBD = getLocalStorage();
-        infosBD[indexElement].descricao = `${elemento.value}`;
-        setLocalStorage(infosBD);
-    }
-    function salvarDestalhamento(elemento, indexElement) {
-        const infosBD = getLocalStorage();
-        infosBD[indexElement].detalhamento = `${elemento.value}`;
-        setLocalStorage(infosBD);
-    }
-    function estiloPadrao(elemento) {
-        elemento.setAttribute("disabled", "true");
-        elemento.setAttribute("class", "input");
-    }
-    function estiloInputHabilitado(elemento) {
-        elemento.removeAttribute("disabled");
-        elemento.setAttribute("class", "input input_habilitado ");
-    }
-    if (click.target.textContent === "Descartar") {
-        estiloPadrao(linhaElementos[0]);
-        estiloPadrao(linhaElementos[1]);
-        carregarHTMLTabela();
-    }
-    if (click.target.textContent !== "Descartar") {
-        if (click.target.className === "btn apagar") {
-            adicionarHTMLConfirmacao();
-        }
-    }
+  }
 }
 function adicionarHTMLConfirmacao() {
-    const HTMLConfirmacao = document.createElement("div");
-    HTMLConfirmacao.setAttribute("class", "confirmacao");
-    HTMLConfirmacao.setAttribute("id", "confirmacao-modal");
-    HTMLConfirmacao.innerHTML = ` 
+  const HTMLConfirmacao = document.createElement("div");
+  HTMLConfirmacao.setAttribute("class", "confirmacao");
+  HTMLConfirmacao.setAttribute("id", "confirmacao-modal");
+  HTMLConfirmacao.innerHTML = ` 
   
   <div class="container-confirmacao">
     <div class="container-texto-confirmacao">
@@ -211,39 +230,43 @@ function adicionarHTMLConfirmacao() {
     <button id="btnNaoConfirmacao" class="botao botao-confirmacao bg-warning"> NÃO </button>
   </div>
   `;
-    confirmSpace.appendChild(HTMLConfirmacao);
-    confirmacao();
+  confirmSpace.appendChild(HTMLConfirmacao);
+  confirmacao();
 }
 function confirmacao() {
-    const btnSim = document.getElementById("btnSimConfirmacao");
-    btnSim.addEventListener("click", () => {
-        confirmSpace.removeChild(HTMLConfirmacao);
-        const infosBD = getLocalStorage();
-        const indexElement = infosBD.findIndex((elemento) => elemento.id == idElemento);
-        infosBD.splice(indexElement, 1);
-        setLocalStorage(infosBD);
-        carregarHTMLTabela();
-    });
-    const btnNao = document.getElementById("btnNaoConfirmacao");
-    btnNao.addEventListener("click", () => confirmSpace.removeChild(HTMLConfirmacao));
-    const HTMLConfirmacao = document.getElementById("confirmacao-modal");
+  const btnSim = document.getElementById("btnSimConfirmacao");
+  btnSim.addEventListener("click", () => {
+    confirmSpace.removeChild(HTMLConfirmacao);
+    const infosBD = getLocalStorage();
+    const indexElement = infosBD.findIndex(
+      (elemento) => elemento.id == idElemento
+    );
+    infosBD.splice(indexElement, 1);
+    setLocalStorage(infosBD);
+    carregarHTMLTabela();
+  });
+  const btnNao = document.getElementById("btnNaoConfirmacao");
+  btnNao.addEventListener("click", () =>
+    confirmSpace.removeChild(HTMLConfirmacao)
+  );
+  const HTMLConfirmacao = document.getElementById("confirmacao-modal");
 }
 function definirID() {
-    const infosBD = getLocalStorage();
-    let max = 0;
-    infosBD.forEach((info) => {
-        if (info.id > max) {
-            max = info.id;
-        }
-    });
-    return max + 1;
+  const infosBD = getLocalStorage();
+  let max = 0;
+  infosBD.forEach((info) => {
+    if (info.id > max) {
+      max = info.id;
+    }
+  });
+  return max + 1;
 }
 function infoEdit() {
-    const infosBD = getLocalStorage();
+  const infosBD = getLocalStorage();
 }
 const loadModal = (description, details) => {
-    const modalSpace = document.getElementById("modalSpace");
-    const modal = `
+  const modalSpace = document.getElementById("modalSpace");
+  const modal = `
   
  
   <div
@@ -305,35 +328,41 @@ const loadModal = (description, details) => {
   </div>
 </div>
   `;
-    modalSpace.innerHTML = modal;
+  modalSpace.innerHTML = modal;
 };
 function moreInfo(buttonId) {
-    const infoButtons = document.getElementsByName("info-btn");
-    const infosLinha = document.getElementsByName(buttonId.toString());
-    const descriptionElement = infosLinha[0];
-    const detailsElement = infosLinha[1];
-    const selectedButton = Array.from(infoButtons).find((button) => buttonId === Number(button.id));
+  const infoButtons = document.getElementsByName("info-btn");
+  const infosLinha = document.getElementsByName(buttonId.toString());
+  const descriptionElement = infosLinha[0];
+  const detailsElement = infosLinha[1];
+  const selectedButton = Array.from(infoButtons).find(
+    (button) => buttonId === Number(button.id)
+  );
 }
 function apagarRecado(description) {
-    const infosBD = getLocalStorage();
-    const indexRecado = infosBD.findIndex((info) => info.descricao === description);
-    infosBD.splice(indexRecado, 1);
-    setLocalStorage(infosBD);
-    carregarHTMLTabela();
+  const infosBD = getLocalStorage();
+  const indexRecado = infosBD.findIndex(
+    (info) => info.descricao === description
+  );
+  infosBD.splice(indexRecado, 1);
+  setLocalStorage(infosBD);
+  carregarHTMLTabela();
 }
 function salvarRecado(description) {
-    const infosBD = getLocalStorage();
-    const recipientDesc = document.getElementById("recipient-desc");
-    const recipientDetails = document.getElementById("recipient-details");
-    const indexRecado = infosBD.findIndex((info) => info.descricao === description);
-    infosBD[indexRecado].descricao = recipientDesc.value;
-    infosBD[indexRecado].detalhamento = recipientDetails.value;
-    setLocalStorage(infosBD);
-    carregarHTMLTabela();
+  const infosBD = getLocalStorage();
+  const recipientDesc = document.getElementById("recipient-desc");
+  const recipientDetails = document.getElementById("recipient-details");
+  const indexRecado = infosBD.findIndex(
+    (info) => info.descricao === description
+  );
+  infosBD[indexRecado].descricao = recipientDesc.value;
+  infosBD[indexRecado].detalhamento = recipientDetails.value;
+  setLocalStorage(infosBD);
+  carregarHTMLTabela();
 }
 function logout() {
-    window.location.href = "login.html";
+  window.location.href = "login.html";
 }
 carregarHTMLTabela();
 formInformacoes.addEventListener("submit", salvar);
-bodyHome.onload = () => { };
+bodyHome.onload = () => {};

@@ -10,7 +10,6 @@ const detalhamento = document.getElementById(
 ) as HTMLInputElement;
 const formInformacoes = document.querySelector("form") as HTMLFormElement;
 const confirmSpace = document.getElementById("confirmSpace") as HTMLElement;
-
 let idElemento = 0;
 
 if (usuario.length === 0) {
