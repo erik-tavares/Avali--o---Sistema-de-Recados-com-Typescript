@@ -87,6 +87,10 @@ body {
   border-radius: 50%;
 }
 
+.olho {
+  color: black;
+}
+
 hr {
   color: black;
   border: solid 2px;
